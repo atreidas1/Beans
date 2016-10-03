@@ -1,0 +1,67 @@
+{
+  beans: [
+    {
+      id: "user1", description: "User model", type: "users.User", singleton: false,
+      properties: [
+        {name: "name", value: "Pi\\\"skin"},
+        {name: "surname", value: "Piskin"},
+        {name: "id", value: "123"},
+        {name: "addres", ref: "address"},
+        {name: "clazz", value: "java.lang.String"},
+        {name: "list", type: "java.util.ArrayList", list: [
+            {value: "Hello world!"},
+            {value: "162.359", type: "double"},
+            {ref: "address"},
+            {value: null}
+          ]
+        },
+        {name: "map", type: "java.util.HashMap", map:[
+          {key: {value: "19999", type: "double"}, value: {value: "sdhfshdfghsdf"}}
+        ]}
+      ]
+    },
+    {
+      "id": "admin", "description": "User model", "type": "users.Admin", "singleton": false,
+      "properties": [
+        {"name": "name", "value": "Piskin"},
+        {"name": "surname", "value": "Piskin"},
+        {"name": "id", "value": "123"},
+        {"name": "password", "value": "123"},
+        {"name": "login", "value": "adras"},
+        {name: "addres", bean: {
+          "type": "users.Address",
+          properties:[
+            {name: "cyti", value: "Brest"}
+          ]
+        }}
+      ]
+    },
+    {
+      "id": "address", "description": "User address", "type": "users.Address", "singleton": false,
+      "properties": [
+        {"name": "cyti", "value": "Gomel"},
+        {"name": "country", "value": "Belarus"},
+        {"name": "street", "value": "Ogorenko"},
+        {"name": "houseNumber", "value": "123"},
+        {"name": "flat", "value": "34"}
+      ]
+    },
+    {
+      id:"rectangle", type: "users.Rectangle",
+      constructor_args: [
+        {value: "1000", type: "int"},
+        {value: "1000", type: "int"},
+        {value: "RED", type: "java.lang.String"}
+      ]
+    },
+    {
+      id : "password", type: "java.lang.String",
+      constructor_args: [{value: "123456789", type: "java.lang.String"}]
+    },
+    {
+      id : "map", type: "java.util.HashMap", map: [
+        {key: {value: "19999", type: "double"}, value: {value: "sdhfshdfghsdf"}}
+      ]
+    }
+  ]
+}
